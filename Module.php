@@ -33,14 +33,8 @@
  */
 namespace Group;
 
-if (!class_exists(\Generic\AbstractModule::class)) {
-    require file_exists(dirname(__DIR__) . '/Generic/AbstractModule.php')
-        ? dirname(__DIR__) . '/Generic/AbstractModule.php'
-        : __DIR__ . '/src/Generic/AbstractModule.php';
-}
-
 use Doctrine\ORM\Events;
-use Generic\AbstractModule;
+use Omeka\Module\AbstractModule;
 use Group\Controller\Admin\GroupController;
 use Group\Db\Event\Listener\DetachOrphanGroupEntities;
 use Group\Entity\Group;
@@ -51,6 +45,7 @@ use Group\Form\SearchForm;
 use Laminas\EventManager\Event;
 use Laminas\EventManager\SharedEventManagerInterface;
 use Laminas\Mvc\MvcEvent;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 use Laminas\View\Renderer\PhpRenderer;
 use Omeka\Api\Adapter\ItemAdapter;
 use Omeka\Api\Adapter\ItemSetAdapter;
@@ -74,9 +69,78 @@ use Omeka\Entity\User;
  */
 class Module extends AbstractModule
 {
-    const NAMESPACE = __NAMESPACE__;
+    public function getConfig()
+    {
+        return include __DIR__ . '/config/module.config.php';
+    }
 
-    public function onBootstrap(MvcEvent $event): void
+    public function install(ServiceLocatorInterface $services)
+    {
+        $connection = $services->get('Omeka\Connection');
+        $connection->executeStatement(<<<'SQL'
+            CREATE TABLE `groups` (
+                `id` INT AUTO_INCREMENT NOT NULL,
+                `name` VARCHAR(190) NOT NULL,
+                `comment` LONGTEXT DEFAULT NULL,
+                UNIQUE INDEX UNIQ_F06D39705E237E06 (`name`),
+                PRIMARY KEY(`id`)
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+        SQL);
+
+        $connection->executeStatement(<<<'SQL'
+            CREATE TABLE `group_resource` (
+                `group_id` INT NOT NULL,
+                `resource_id` INT NOT NULL,
+                INDEX IDX_B5A1B869FE54D947 (`group_id`),
+                INDEX IDX_B5A1B86989329D25 (`resource_id`),
+                PRIMARY KEY(`group_id`, `resource_id`)
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+        SQL);
+
+        $connection->executeStatement(<<<'SQL'
+            CREATE TABLE `group_user` (
+                `group_id` INT NOT NULL,
+                `user_id` INT NOT NULL,
+                INDEX IDX_A4C98D39FE54D947 (`group_id`),
+                INDEX IDX_A4C98D39A76ED395 (`user_id`),
+                PRIMARY KEY(`group_id`, `user_id`)
+            ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+        SQL);
+
+        $connection->executeStatement(<<<'SQL'
+            ALTER TABLE `group_resource`
+            ADD CONSTRAINT FK_B5A1B869FE54D947 FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`)
+                ON DELETE CASCADE
+        SQL);
+
+        $connection->executeStatement(<<<'SQL'
+            ALTER TABLE `group_resource`
+            ADD CONSTRAINT FK_B5A1B86989329D25 FOREIGN KEY (`resource_id`) REFERENCES `resource` (`id`)
+                ON DELETE CASCADE
+        SQL);
+
+        $connection->executeStatement(<<<'SQL'
+            ALTER TABLE `group_user`
+            ADD CONSTRAINT FK_A4C98D39FE54D947 FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`)
+                ON DELETE CASCADE
+        SQL);
+
+        $connection->executeStatement(<<<'SQL'
+            ALTER TABLE `group_user`
+            ADD CONSTRAINT FK_A4C98D39A76ED395 FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+                ON DELETE CASCADE
+        SQL);
+    }
+
+    public function uninstall(ServiceLocatorInterface $services)
+    {
+        $connection = $services->get('Omeka\Connection');
+        $connection->executeStatement('DROP TABLE IF EXISTS `group_user`');
+        $connection->executeStatement('DROP TABLE IF EXISTS `group_resource`');
+        $connection->executeStatement('DROP TABLE IF EXISTS `groups`');
+    }
+
+    public function onBootstrap(MvcEvent $event)
     {
         parent::onBootstrap($event);
         $this->addAclRules();
@@ -157,7 +221,7 @@ class Module extends AbstractModule
             );
     }
 
-    public function attachListeners(SharedEventManagerInterface $sharedEventManager): void
+    public function attachListeners(SharedEventManagerInterface $sharedEventManager)
     {
         $services = $this->getServiceLocator();
         $config = $services->get('Config');
