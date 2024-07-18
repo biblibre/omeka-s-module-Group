@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 00:00+0000\n"
+"POT-Creation-Date: 2024-07-18 10:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,208 +17,218 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Module.php:460
-msgid ""
-"The settings should be set in the file \"config/local.config.php\" of Omeka. "
-"See the file module.config.php of the module and readme."
-msgstr ""
-
-#: Module.php:1145
-msgid "Has groups"
-msgstr ""
-
-#: Module.php:1146
-msgid "true"
-msgstr ""
-
 #: src/Controller/Admin/GroupController.php:170
 msgid "Add another group?"
 msgstr ""
 
-#: view/common/admin/group-mapping-sidebar.phtml:9
-#: view/common/admin/groups-resource-form.phtml:21
-#: view/common/admin/groups-resource-list.phtml:25
-#: view/common/admin/groups-resource.phtml:14
-#: view/group/admin/group/browse.phtml:46 view/group/admin/group/show.phtml:7
+#: view/common/admin/group-mapping-sidebar.phtml:16
+#: view/common/admin/groups-resource-form.phtml:31
+#: view/common/admin/groups-resource-list.phtml:27
+#: view/common/admin/groups-resource.phtml:23
+#: view/group/admin/group/browse.phtml:54 view/group/admin/group/show.phtml:16
 msgid "Groups"
 msgstr ""
 
-#: view/common/admin/group-mapping-sidebar.phtml:10
+#: view/common/admin/group-mapping-sidebar.phtml:17
 msgid "Select below"
 msgstr ""
 
-#: view/common/admin/groups-resource-form.phtml:6
+#: view/common/admin/groups-resource-form.phtml:15
 msgid "Remove group"
 msgstr ""
 
-#: view/common/admin/groups-resource-form.phtml:45
-#: view/common/admin/groups-resource-form.phtml:46
-#: view/common/admin/groups-resource-list.phtml:68
-#: view/common/admin/groups-resource-list.phtml:69
-#: view/common/admin/groups-resource.phtml:44
-#: view/common/admin/groups-resource.phtml:45
-msgid "Users within this group"
-msgstr ""
-
-#: view/common/admin/groups-resource-form.phtml:50
-#: view/common/admin/groups-resource-form.phtml:51
-#: view/common/admin/groups-resource-list.phtml:63
-#: view/common/admin/groups-resource-list.phtml:64
-#: view/common/admin/groups-resource.phtml:39
-#: view/common/admin/groups-resource.phtml:40
-msgid "Item sets within this group"
-msgstr ""
-
+#: view/common/admin/groups-resource-form.phtml:53
 #: view/common/admin/groups-resource-form.phtml:54
-#: view/common/admin/groups-resource-form.phtml:55
-#: view/common/admin/groups-resource-list.phtml:59
-#: view/common/admin/groups-resource-list.phtml:60
-#: view/common/admin/groups-resource.phtml:35
-#: view/common/admin/groups-resource.phtml:36
-msgid "Items within this group"
+#: view/common/admin/groups-resource-list.phtml:71
+#: view/common/admin/groups-resource-list.phtml:72
+#: view/common/admin/groups-resource.phtml:53
+#: view/common/admin/groups-resource.phtml:54
+msgid "Users within this group"
 msgstr ""
 
 #: view/common/admin/groups-resource-form.phtml:58
 #: view/common/admin/groups-resource-form.phtml:59
-#: view/common/admin/groups-resource-list.phtml:55
-#: view/common/admin/groups-resource-list.phtml:56
-#: view/common/admin/groups-resource.phtml:31
-#: view/common/admin/groups-resource.phtml:32
+#: view/common/admin/groups-resource-list.phtml:66
+#: view/common/admin/groups-resource-list.phtml:67
+#: view/common/admin/groups-resource.phtml:48
+#: view/common/admin/groups-resource.phtml:49
+msgid "Item sets within this group"
+msgstr ""
+
+#: view/common/admin/groups-resource-form.phtml:62
+#: view/common/admin/groups-resource-form.phtml:63
+#: view/common/admin/groups-resource-list.phtml:62
+#: view/common/admin/groups-resource-list.phtml:63
+#: view/common/admin/groups-resource.phtml:44
+#: view/common/admin/groups-resource.phtml:45
+msgid "Items within this group"
+msgstr ""
+
+#: view/common/admin/groups-resource-form.phtml:66
+#: view/common/admin/groups-resource-form.phtml:67
+#: view/common/admin/groups-resource-list.phtml:58
+#: view/common/admin/groups-resource-list.phtml:59
+#: view/common/admin/groups-resource.phtml:40
+#: view/common/admin/groups-resource.phtml:41
 msgid "Media within this group"
 msgstr ""
 
-#: view/common/admin/groups-resource-form.phtml:72
-#: view/common/admin/groups-resource-list.phtml:34
+#: view/common/admin/groups-resource-form.phtml:80
+#: view/common/admin/groups-resource-list.phtml:37
 msgid "There are no groups for this resource."
 msgstr ""
 
-#: view/common/admin/groups-resource-form.phtml:74
+#: view/common/admin/groups-resource-form.phtml:82
 msgid "Add existing groups using the interface to the right."
 msgstr ""
 
-#: view/common/admin/groups-resource-form.phtml:77
+#: view/common/admin/groups-resource-form.phtml:85
 msgid "Add a group"
 msgstr ""
 
-#: view/common/admin/groups-resource-list.phtml:27
+#: view/common/admin/groups-resource-list.phtml:29
 msgid "There are no groups for this user."
 msgstr ""
 
-#: view/common/admin/groups-resource-list.phtml:50
-#: view/common/admin/groups-resource-list.phtml:51
-#: view/common/admin/groups-resource.phtml:26
-#: view/common/admin/groups-resource.phtml:27
+#: view/common/admin/groups-resource-list.phtml:53
+#: view/common/admin/groups-resource-list.phtml:54
+#: view/common/admin/groups-resource.phtml:35
+#: view/common/admin/groups-resource.phtml:36
 msgid "Unassign group"
 msgstr ""
 
-#: view/common/admin/groups-resource.phtml:17
+#: view/common/admin/groups-resource.phtml:26
 msgid "No group."
 msgstr ""
 
-#: view/common/admin/groups-selector.phtml:20
+#: view/common/admin/groups-selector.phtml:26
 msgid "Close Me"
 msgstr ""
 
-#: view/common/admin/groups-selector.phtml:21
+#: view/common/admin/groups-selector.phtml:27
 msgid "Click on a group to add it to the edit panel."
 msgstr ""
 
-#: view/common/admin/groups-selector.phtml:22
+#: view/common/admin/groups-selector.phtml:28
 msgid "Filter groups"
 msgstr ""
 
-#: view/common/admin/groups-selector.phtml:24
+#: view/common/admin/groups-selector.phtml:30
 msgid "All groups"
 msgstr ""
 
-#: view/group/admin/group/add.phtml:8
+#: view/group/admin/group/add.phtml:16
 msgid "New group"
 msgstr ""
 
-#: view/group/admin/group/batch-delete-confirm.phtml:5
+#: view/group/admin/group/batch-delete-confirm.phtml:12
 msgid "Delete groups"
 msgstr ""
 
-#: view/group/admin/group/batch-delete-confirm.phtml:6
+#: view/group/admin/group/batch-delete-confirm.phtml:13
 msgid "Are you sure you would like to delete the selected groups?"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:13
-#: view/group/admin/group/browse.phtml:90
+#: view/group/admin/group/browse.phtml:21
+#: view/group/admin/group/browse.phtml:98
 msgid "Total count"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:17
+#: view/group/admin/group/browse.phtml:25
 msgid "Total users"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:21
+#: view/group/admin/group/browse.phtml:29
 msgid "Total resources"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:25
+#: view/group/admin/group/browse.phtml:33
 msgid "Total item sets"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:29
+#: view/group/admin/group/browse.phtml:37
 msgid "Total items"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:33
+#: view/group/admin/group/browse.phtml:41
 msgid "Total media"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:37
+#: view/group/admin/group/browse.phtml:45
 msgid "Recent"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:60
+#: view/group/admin/group/browse.phtml:68
 msgid "Add new group"
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:76
+#: view/group/admin/group/browse.phtml:84
 msgid "There are no groups."
 msgstr ""
 
-#: view/group/admin/group/browse.phtml:117
-#: view/group/admin/group/browse.phtml:118
+#: view/group/admin/group/browse.phtml:125
+#: view/group/admin/group/browse.phtml:126
 msgid "Edit name"
 msgstr ""
 
-#: view/group/admin/group/show-details.phtml:14
+#: view/group/admin/group/show-details.phtml:24
 msgid "No comment."
 msgstr ""
 
-#: view/group/admin/group/show-details.phtml:19
+#: view/group/admin/group/show-details.phtml:29
 msgid "Stats"
 msgstr ""
 
-#: view/group/admin/group/show-details.phtml:21
+#: view/group/admin/group/show-details.phtml:30
+#: view/group/admin/group/show-details.phtml:34
+#: view/group/admin/group/show-details.phtml:38
+#: view/group/admin/group/show-details.phtml:42
+#: view/group/admin/group/show-details.phtml:46
+#: view/group/admin/group/show-details.phtml:50
+#, php-format
+msgid "%1$s: %2$s"
+msgstr ""
+
+#: view/group/admin/group/show-details.phtml:31
 msgid "Total"
 msgstr ""
 
-#: view/group/admin/group/show-details.phtml:41
+#: view/group/admin/group/show-details.phtml:51
 msgid "Medias"
 msgstr ""
 
-#: view/group/admin/group/show.phtml:12
+#: view/group/admin/group/show.phtml:21
 msgid "Back to group list"
 msgstr ""
 
-#: view/group/admin/group/show.phtml:25
+#: view/group/admin/group/show.phtml:34
 msgid "Internal id"
 msgstr ""
 
-#: view/group/admin/group/show.phtml:31
+#: view/group/admin/group/show.phtml:40
 msgid "Groups are editable on the browse page."
 msgstr ""
 
-#: Module.php:934
+#: Module.php:135
+msgid ""
+"Remember to adjust configuration in the file \"config/local.config.php\" of "
+"Omeka. See the file module.config.php of the module and readme."
+msgstr ""
+
+#: Module.php:917
 msgid "Remove groups"
 msgstr ""
 
-#: Module.php:949
+#: Module.php:932
 msgid "Add groups"
+msgstr ""
+
+#: Module.php:1088 src/Form/SearchForm.php:17
+msgid "Has groups"
+msgstr ""
+
+#: config/module.config.php:188
+msgid "Request too long to process."
 msgstr ""
 
 #: src/Form/SearchForm.php:24
@@ -229,7 +239,7 @@ msgstr ""
 msgid "Multiple groups may be comma-separated."
 msgstr ""
 
-#: src/Form/Element/GroupSelect.php:67
+#: src/Form/Element/GroupSelect.php:86
 msgid "Select groups…"
 msgstr ""
 
@@ -285,28 +295,24 @@ msgstr ""
 msgid "%s entity with criteria {\"%s\":\"%s\"} not found."
 msgstr ""
 
-#: src/Api/Adapter/GroupAdapter.php:227
+#: src/Api/Adapter/GroupAdapter.php:239
 #, php-format
 msgid "The name \"%s\" is already taken."
 msgstr ""
 
-#: src/Api/Adapter/GroupAdapter.php:249
+#: src/Api/Adapter/GroupAdapter.php:261
 #, php-format
 msgid "The name \"%s\" contains forbidden characters."
 msgstr ""
 
-#: src/Api/Adapter/GroupAdapter.php:255
+#: src/Api/Adapter/GroupAdapter.php:267
 msgid "A name can’t contain only numbers."
 msgstr ""
 
-#: src/Api/Adapter/GroupAdapter.php:263
+#: src/Api/Adapter/GroupAdapter.php:275
 msgid "A name cannot be a reserved word."
 msgstr ""
 
-#: src/Api/Adapter/GroupAdapter.php:267
+#: src/Api/Adapter/GroupAdapter.php:279
 msgid "A group must have a name."
-msgstr ""
-
-#: config/module.config.php:182
-msgid "Request too long to process."
 msgstr ""

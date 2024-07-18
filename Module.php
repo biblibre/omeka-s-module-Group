@@ -130,6 +130,9 @@ class Module extends AbstractModule
             ADD CONSTRAINT FK_A4C98D39A76ED395 FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
                 ON DELETE CASCADE
         SQL);
+
+        $messenger = $services->get('ControllerPluginManager')->get('messenger');
+        $messenger->addWarning('Remember to adjust configuration in the file "config/local.config.php" of Omeka. See the file module.config.php of the module and readme.'); // @translate
     }
 
     public function uninstall(ServiceLocatorInterface $services)
@@ -442,12 +445,6 @@ class Module extends AbstractModule
                 [$this, 'filterSearchFilters']
             );
         }
-    }
-
-    public function getConfigForm(PhpRenderer $renderer)
-    {
-        $this->warnConfig();
-        return '';
     }
 
     public function filterApiContext(Event $event): void
@@ -1098,51 +1095,6 @@ class Module extends AbstractModule
             $filters[$filterLabel] = $filterValue;
         }
         $event->setParam('filters', $filters);
-    }
-
-    protected function warnConfig(): void
-    {
-        $services = $this->getServiceLocator();
-        $config = $services->get('Config');
-        $translator = $services->get('MvcTranslator');
-        $messenger = $services->get('ControllerPluginManager')->get('messenger');
-
-        $message = new \Omeka\Stdlib\Message(
-            $translator->translate('The settings should be set in the file "config/local.config.php" of Omeka. See the file module.config.php of the module and readme.') // @translate
-        );
-        $messenger->addWarning($message);
-
-        $recursiveItemSets = !empty($config['group']['config']['group_recursive_item_sets']);
-        $message = new \Omeka\Stdlib\Message(
-            $translator->translate('Recursive item sets: %s'), // @translate
-            $recursiveItemSets
-                ? $translator->translate('yes') // @translate
-               : $translator->translate('no') // @translate
-        );
-        $messenger->addSuccess($message);
-
-        if ($recursiveItemSets) {
-            $message = new \Omeka\Stdlib\Message(
-                $translator->translate('The groups for resources can be set only by item sets.') // @translate
-            );
-            $messenger->addSuccess($message);
-        }
-
-        $recursiveItems = !empty($config['group']['config']['group_recursive_items']);
-        $message = new \Omeka\Stdlib\Message(
-            $translator->translate('Recursive items: %s'), // @translate
-            $recursiveItems
-                ? $translator->translate('yes') // @translate
-                : $translator->translate('no') // @translate
-        );
-        $messenger->addSuccess($message);
-
-        if (!$recursiveItemSets && $recursiveItems) {
-            $message = new \Omeka\Stdlib\Message(
-                $translator->translate('The groups for medias can be set only at items level.') // @translate
-            );
-            $messenger->addSuccess($message);
-        }
     }
 
     /**
